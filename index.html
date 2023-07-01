@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+<head>
+    <title>이미지 검색 페이지</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>이미지 검색 페이지</h1>
+    <form id="searchForm" method="POST">
+        <input type="text" name="description" placeholder="이미지 설명을 입력하세요" required>
+        <input type="submit" value="이미지 검색">
+    </form>
+    <br>
+    <div id="imageContainer"></div>
+
+    <script>
+        $(document).ready(function() {
+            $('#searchForm').submit(function(e) {
+                e.preventDefault();
+
+                var description = $('input[name="description"]').val();
+
+                // ajax로 php파일에 post요청
+                $.ajax({
+                    url: 'generate_image_karlo.php',
+                    type: 'POST',
+                    data: { description: description },
+                    success: function(data) {
+                        displayImage(data);
+                    }
+                });
+            });
+
+            function displayImage(image_arr) {
+                var imageContainer = $('#imageContainer');
+                imageContainer.empty(); // 이미지 컨테이너 초기화
+
+                for (var i = 0; i < image_arr.length; i++) {
+                    var imageURL = image_arr[i];
+                    var img = $('<img>').attr('src', imageURL).attr('alt', 'Image');
+                    imageContainer.append(img);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
