@@ -1,5 +1,5 @@
 # API_design(capstone_design_project)
-## 웹앱 프로젝트를 하면서 앱에 필요한 특정 세부기능을 api로 디자인 하고 그 기능을 구현하는 역할을 맡았습니다.
+## 웹앱 프로젝트를 하면서 앱에 필요한 특정 세부기능을 api로 디자인 하고 그 기능을 구현하는 역할을 맡았습니다. [php코드 테스트용 apache서버 여는 툴로 xampp 사용]
 1. 유저 프로필을 생성할때 프로필 사진을  생성AI를 이용한 이미지를 사용할수있게하는 api를 구현
 - generate_image_karlo.php -> kakao developers의 karlo api를 이용하여서 사용자가 생성하고 싶은 이미지에 대한 설명을 입력하면 그에 맞는 이미지 4장을 생성하고 지정 디렉토리에 저장하는 api
 - 예시로 생성된 generated_image_0~3.png (예시 설명: A deep dark lake)
